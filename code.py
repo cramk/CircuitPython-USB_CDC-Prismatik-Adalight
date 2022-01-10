@@ -2,7 +2,6 @@
 import time
 import board
 import usb_cdc
-import array
 import neopixel
 
 
