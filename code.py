@@ -60,7 +60,6 @@ while True:
 
     # Cannot XOR bytes, checksum is converted to INT
     if (chk == (hi ^ lo ^ 0x55)):
-        lastByteTime = t
         for i in range(0,num_pixels):
             r = int.from_bytes(usb_cdc.data.read(), "big")
             g = int.from_bytes(usb_cdc.data.read(), "big")
