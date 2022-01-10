@@ -1,4 +1,4 @@
-"""CircuitPython Essentials NeoPixel example"""
+"""CircuitPython-USB_CDC-Prismatik-Adalight"""
 import time
 import board
 import usb_cdc
