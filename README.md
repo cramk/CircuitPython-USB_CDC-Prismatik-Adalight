@@ -9,6 +9,7 @@ Prismatik provides numerous quality-of-life features for LED control including s
 *Quick Guide*
 ---------------------
 - Copy the code.py file to your CIRCUITPYTHON drive
+- Adjust code.py for your LED strip: such as # LEDs, or maybe youre not using NeoPixel but another driver?
 - Allow for a soft-reboot of your board, or check requirements (enabling USB_CDC data serial will require a hard reboot)
 - Run Prissmatik's configuration wizard for "Adalight" on the correct COM port, baud rate 11520 should work fine
 - Ensure the USB/LED/Software is all running, and enjoy your ambilight experience!
