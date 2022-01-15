@@ -18,4 +18,4 @@ Prismatik provides numerous quality-of-life features for LED control including s
 - A USB_CDC supported CircuitPython MicroController (Tested with Tiny2040)
 - Any LED strip, you will have modify the code to drive your specific LED type
 - A CIRCUITPYTHON/boot.py file with USB_CDC Data serial connection enabled
-- Adalight Prismatik software, found at https://lightpack.tv/pages/downloads
+- Adalight Prismatik software, found at https://lightpack.tv/pages/downloads or even better: https://github.com/psieg/Lightpack (unofficial)

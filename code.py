@@ -2,11 +2,12 @@
 import time
 import board
 import usb_cdc
+import array
 import neopixel
 
 
-pixel_pin = board.GP1
-num_pixels = 60
+pixel_pin = board.GP1 #BOARD PIN
+num_pixels = 60       #NUMBER OF LEDS
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels,
                            brightness=1.0, auto_write=False)
 
@@ -33,6 +34,8 @@ def setup():
     pixels.fill((0, 0, 0))
     pixels.show()
     time.sleep(0.3)
+    pixels.fill((200,150,150))
+    pixels.show()
     sendAck()
 
 
@@ -59,16 +62,17 @@ while True:
             lastAckTime = t
         i = 0
 
+    # Cannot XOR bytes, checksum is converted to INT
     hi = int.from_bytes(usb_cdc.data.read(), endian)
     lo = int.from_bytes(usb_cdc.data.read(), endian)
     chk = int.from_bytes(usb_cdc.data.read(), endian)
 
-    # Cannot XOR bytes, checksum is converted to INT
+    # neopixel requires INT for color tuple
     if (chk == (hi ^ lo ^ 0x55)):
         for i in range(0, num_pixels):
             r = int.from_bytes(usb_cdc.data.read(), endian)
             g = int.from_bytes(usb_cdc.data.read(), endian)
             b = int.from_bytes(usb_cdc.data.read(), endian)
-            # neopixel requires INT for color tuple
+
             pixels[i] = (r, g, b)
         pixels.show()
